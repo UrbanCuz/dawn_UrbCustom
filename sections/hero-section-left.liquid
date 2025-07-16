@@ -1,42 +1,6 @@
 <section class="hero">
   <div class="hero__content">
-    <h1 class="hero__title">{{section.settings.title-red}}</h1>
-    <h1 class="hero__title">{{section.settings.title-white}}</h1>
-    <p class="hero__subtitle">{{section.settings.subtitle}}</p>
-    <div class="hero__buttons">
-      <a href="{{routes.collections.all}}" class="button button--primary">Shop Now</a>
-  </div>
+    <h1 class="hero__title">Welcome to Our Store</h1>
+    <p class="hero__subtitle">Discover the best products just for you</p>
   </div>
 </section>
-
-{% schema %}
-  {
-    "name": "Hero Section Left",
-    "settings": [
-      {
-        "type": "text",
-        "id": "title-red",
-        "label": "Write your title here",
-        "default": "Art & Apparel"
-      },
-      {
-        "type": "text",
-        "id": "title-white",
-        "label": "Write your title here",
-        "default": "Designed by Us or by You"
-      },
-      {
-        "type": "textarea",
-        "id": "subtitle",
-        "label": "Subtitle",
-        "default": "Discover exclusive canvas art and streetwear from our collection or create custom pieces made for your style, brand, or space."
-      },
-      {
-        "type": "url",
-        "id": "button-url",
-        "label": "Button URL",
-        "default": ""
-      }
-    ]
-  }
-{% endschema %}
