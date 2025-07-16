@@ -40,6 +40,15 @@
         "padding_bottom": 20
       }
     },
+    "hero-section-left": {
+      "type": "hero-section-left",
+      "settings": {
+        "heading": "Welcome to Our Store",
+        "subheading": "Discover the best products just for you",
+        "button_text": "Shop Now",
+        "button_url": "{{ routes.collections.all }}"
+      }
+    }
   },
   "order": ["announcement-bar", "header"]
 }
