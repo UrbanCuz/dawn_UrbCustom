@@ -1,6 +1,22 @@
 <section class="hero">
   <div class="hero__content">
-    <h1 class="hero__title">Welcome to Our Store</h1>
+    <h1 class="hero__title">{{section.settings.heading}}</h1>
     <p class="hero__subtitle">Discover the best products just for you</p>
   </div>
 </section>
+
+
+{%  schema  %}  
+{
+  "name": "Hero Section Left",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to Our Store"
+    }
+  ]
+
+}
+{% endschema %}
