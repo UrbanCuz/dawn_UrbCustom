@@ -1,13 +1,12 @@
 {
   "sections": {
-     "header-new": {
-        "type": "hero-section-left",
-        "settings": {
-            "heading": "Welcome to Our Store",
-            "subheading": "Discover the best products just for you",
-            "button_text": "Shop Now",
-            "button_url": "{{ routes.collections.all }}"
-        }
+    "hero-section-left": {
+      "type": "hero-section-left",
+      "settings": {
+        "upper_title": "Welcome to Our Store",
+        "lower_title": "Discover the best products just for you",
+        "description": "Explore our wide range of products tailored to your needs."
+      }
     },
     "image_banner": {
       "type": "image-banner",
@@ -78,6 +77,7 @@
     }
   },
   "order": [
+    "hero-section-left",
     "image_banner",
     "featured_collection"
   ]
