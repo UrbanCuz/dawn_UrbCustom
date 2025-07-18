@@ -7,14 +7,19 @@
 }
 
 .hero-left {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   height: 90vh;
 }
 
 .hero-content {
   margin-left: 40px;
   max-width: 600px;
+  grid-area: 1 / 1 / 6 / 3;
+}
+
+.right-content-test {
+    grid-area: 1 / 3 / 6 / 6;
 }
 
 .upper-title {
