@@ -11,15 +11,17 @@
 }
 
 .upper-title {
-  font-size: 2rem;
   color: #d51a1a;
   margin: 10px 0;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 .lower-title {
-  font-size: 2rem;
   color: #ffffff;
   margin: 10px 0;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 .description {
