@@ -2,10 +2,23 @@
 
 
 <section class="hero-left">
-  <div class="hero__content">
+  <div class="hero__content"
+    style="
+      background-color: {{ section.settings.background_color }};
+    "
+  >
     <h1 class="hero__title">{{ section.settings.upper_title }}</h1>
     <h1>{{ section.settings.lower_title }}</h1>
     <p class="hero__subtitle">{{ section.settings.description }}</p>
+    <div class="hero__actions">
+      <a href="{{ section.settings.button_link }}" class="btn">{{ section.settings.button_text }}</a>
+      <a href="{{ section.settings.secondary_button_link }}" class="btn secondary">{{ section.settings.secondary_button_text }}</a>
+    </div>
+  </div>
+
+
+  <div class="right-content-test">
+    Test the right space
   </div>
 </section>
 
@@ -31,6 +44,36 @@
       "id": "description",
       "label": "Description",
       "default": "Explore our wide range of products tailored to your needs."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "#"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link",
+      "default": "#"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
     }
   ]
 
