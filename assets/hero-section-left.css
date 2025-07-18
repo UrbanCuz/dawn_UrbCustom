@@ -6,7 +6,11 @@
 .hero-left {
   display: flex;
   flex-direction: row;
+  height: 90vh;
+}
 
+.hero-content {
+  margin-left: 40px;
 }
 
 .upper-title {
