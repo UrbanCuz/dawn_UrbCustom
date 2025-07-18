@@ -1,4 +1,7 @@
-<section class="hero">
+{{ 'hero-section-left.css' |  asset_url | stylesheet_tag }}
+
+
+<section class="hero-left">
   <div class="hero__content">
     <h1 class="hero__title">{{ section.settings.upper_title }}</h1>
     <h1>{{ section.settings.lower_title }}</h1>
