@@ -9,7 +9,8 @@
   >
     <h1 class="upper__title">{{ section.settings.upper_title }}</h1>
     <h1 class="lower__title">{{ section.settings.lower_title }}</h1>
-    <p class="description">{{ section.settings.description }}</p>
+    <p class="description" style="color: {{ section.settings.description_color }};">
+      {{ section.settings.description }}</p>
     <a href="/collections/all" class="hero-btn">Shop Wall Art</a>
     <a href="/collections/all" class="hero-btn">Shop Apparel</a>
   </div>
@@ -48,6 +49,12 @@
       "id": "background_color",
       "label": "Background Color",
       "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#000000"
     }
   ]
 
