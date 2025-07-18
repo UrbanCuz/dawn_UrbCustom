@@ -8,6 +8,9 @@
         "description": "Explore our wide range of products tailored to your needs."
       }
     },
+    "hero-section": {
+      "type": "hero-section",
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -39,6 +42,7 @@
   },
   "order": [
     "hero-section-left",
+    "hero-section",
     "featured_collection"
   ]
 }
