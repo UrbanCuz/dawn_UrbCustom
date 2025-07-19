@@ -20,7 +20,8 @@
 }
 
 .list-menu__item--active:hover {
-  text-decoration-thickness: 0.2rem;
+  /* text-decoration-thickness: 0.2rem; */
+  border-bottom: 2px solid #ED1C24;
 }
 
 .list-menu--disclosure.localization-selector {
