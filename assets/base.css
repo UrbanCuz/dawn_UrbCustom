@@ -1,3 +1,28 @@
+/* Custom Font Import */
+@font-face {
+  font-family: 'General Sans';
+  src: url('{{ "General-Sans-Regular.woff2" | asset_url }}') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('{{ "General-Sans-Bold.woff2" | asset_url }}') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('{{ "General-Sans-Semibold.woff2" | asset_url }}') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -6,6 +31,9 @@
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+   --font-body-family: 'General Sans', sans-serif;
+  --font-heading-family: 'General Sans', sans-serif;
+  --font-semibold-family: 'General Sans', sans-serif;
 }
 
 .product-card-wrapper .card,

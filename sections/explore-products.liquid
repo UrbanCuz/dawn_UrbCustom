@@ -1,0 +1,147 @@
+<section>
+    <div class="container">
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+
+        <div class="explore-grid">
+            {% comment %} Grid 1 {% endcomment %}
+            <div class="grid-item grid-item-1">
+                {% if section.settings.item1_image != blank %}
+                   <a href="{{ section.settings.item1_link }}" class="grid-link">
+                        <img src="{{ section.settings.item1_image | img_url: 'master' }}" alt="{{ section.settings.item1_title }}" class="grid-image" height="auto" width="100%">
+                        <p class="grid-title">{{ section.settings.item1_title }}</p>
+                    </a>
+                {% endif %}
+            </div>
+
+            {% comment %} Grid 2 {% endcomment %}
+            <div class="grid-item grid-item-2">
+                {% if section.settings.item2_image != blank %}
+                   <a href="{{ section.settings.item2_link }}" class="grid-link">
+                        <img src="{{ section.settings.item2_image | img_url: 'master' }}" alt="{{ section.settings.item2_title }}" class="grid-image" height="auto" width="100%">
+                        <p class="grid-title">{{ section.settings.item2_title }}</p>
+                    </a>
+                {% endif %}
+            </div>
+
+            {% comment %} Grid 3 {% endcomment %}
+            <div class="grid-item grid-item-3">
+                {% if section.settings.item3_image != blank %}
+                   <a href="{{ section.settings.item3_link }}" class="grid-link">
+                        <img src="{{ section.settings.item3_image | img_url: 'master' }}" alt="{{ section.settings.item3_title }}" class="grid-image" height="auto" width="100%">
+                        <p class="grid-title">{{ section.settings.item3_title }}</p>
+                    </a>
+                {% endif %}
+            </div>
+
+            {% comment %} Grid 4 {% endcomment %}
+            <div class="grid-item grid-item-4">
+                {% if section.settings.item4_image != blank %}
+                   <a href="{{ section.settings.item4_link }}" class="grid-link">
+                        <img src="{{ section.settings.item4_image | img_url: 'master' }}" alt="{{ section.settings.item4_title }}" class="grid-image" height="auto" width="100%">
+                        <p class="grid-title">{{ section.settings.item4_title }}</p>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Explore Products",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Section Title",
+            "default": "Explore Products"
+        },
+        {
+            "type": "header",
+            "content": "Grid Item 1 (Large)"
+        },
+        {
+            "type": "image_picker",
+            "id": "item1_image",
+            "label" : "Item 1 Image"
+        },
+        {
+            "type": "text",
+            "id": "item1_title",
+            "label": "Item 1 Title",
+            "default": "Custom Artwork"
+        },
+        {
+            "type": "url",
+            "id": "item1_link",
+            "label": "Item 1 Link"
+        },
+        {
+            "type": "header",
+            "content": "Grid Item 2 (Medium)"
+        },
+        {
+            "type": "image_picker",
+            "id": "item2_image",
+            "label" : "Item 2 Image"
+        },
+        {
+            "type": "text",
+            "id": "item2_title",
+            "label": "Item 2 Title",
+            "default": "Custom Apparel"
+        },
+        {
+            "type": "url",
+            "id": "item2_link",
+            "label": "Item 2 Link"
+        },
+        {
+            "type": "header",
+            "content": "Grid Item 3 (Small)"
+        },
+        {
+            "type": "image_picker",
+            "id": "item3_image",
+            "label" : "Item 3 Image"
+        },
+        {
+            "type": "text",
+            "id": "item3_title",
+            "label": "Item 3 Title",
+            "default": "Our Collections"
+        },
+        {
+            "type": "url",
+            "id": "item3_link",
+            "label": "Item 3 Link"
+        },
+        {
+            "type": "header",
+            "content": "Grid Item 4 (Small)"
+        },
+        {
+            "type": "image_picker",
+            "id": "item4_image",
+            "label" : "Item 4 Image"
+        },
+        {
+            "type": "text",
+            "id": "item4_title",
+            "label": "Item 4 Title",
+            "default": "Custom Accessories"
+        },
+        {
+            "type": "url",
+            "id": "item4_link",
+            "label": "Item 4 Link"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Explore Products",
+            "category": "Custom Sections"
+        }
+    ]
+}
+{% endschema %}
