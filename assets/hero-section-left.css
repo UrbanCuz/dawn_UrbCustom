@@ -25,6 +25,7 @@
 
 .right-content-test {
     grid-area: 1 / 3 / 6 / 6;
+    background-image: url(./uc-right-bg.png);
 }
 
 .upper-title {
