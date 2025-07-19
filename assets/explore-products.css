@@ -18,6 +18,10 @@ margin-bottom: 20px;
 color: #333;
 }
 
+.red-title {
+color: #ED1C24;
+}
+
 .section-subtitle {
 text-align: center;
 font-size: 1.1rem;
@@ -96,7 +100,7 @@ position: absolute;
 bottom: 20px;
 left: 36px;
 margin: 0;
-font-size: 1.1rem;
+font-size: 24px;
 font-weight: 600;
 color: white;
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
