@@ -1,12 +1,10 @@
 {{ 'hero-section-left.css' |  asset_url | stylesheet_tag }}
 
 
-<section class="hero-left">
-  <div class="hero-content"
-    style="
+<section class="hero-left" style="
       background-color: {{ section.settings.background_color }};
-    "
-  >
+    ">
+  <div class="hero-content">
     <div class="item-center">
       <h1 class="upper__title" style="color: {{ section.settings.upper_title_color }}">{{ section.settings.upper_title }}</h1>
       <h1 class="lower__title" style="color: {{ section.settings.lower_title_color }}">{{ section.settings.lower_title }}</h1>
