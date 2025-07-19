@@ -13,7 +13,7 @@
 }
 
 .hero-content {
-  margin-left: 70px;
+  margin-left: 60px;
   max-width: 650px;
   grid-area: 1 / 1 / 6 / 3;
   display: flex;
