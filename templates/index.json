@@ -15,10 +15,18 @@
         "upper_title": "Art & Apparel",
         "upper_title_color": "#ffffff",
         "lower_title": "Designed by Us or by You",
-        "lower_title_color": "#d51a1a",
+        "lower_title_color": "#ed1c24",
         "description": "Explore our wide range of products tailored to your needs.",
         "background_color": "#000000",
-        "description_color": "#ffffff"
+        "description_color": "#ffffff",
+        "button_left_text": "Shop Wall Art",
+        "button_left_url": "",
+        "btn_left_color": "#ffffff",
+        "bg_btn_left_color": "#ed1c24",
+        "button_right_text": "Shop Apparel",
+        "button_right_url": "",
+        "btn_right_color": "#ffffff",
+        "bg_btn_right_color": "#ed1c24"
       }
     },
     "explore-products": {
@@ -41,6 +49,7 @@
     },
     "hero-section": {
       "type": "hero-section",
+      "disabled": true,
       "settings": {
         "show_preloader": false,
         "preloader_color": "#ffffff",
