@@ -5,6 +5,10 @@
     line-height: 1.2;
 }
 
+.product-item {
+    
+}
+
 @media screen and (min-width: 750px) {
   .curated-for-you__heading {
     font-size: 2rem;
