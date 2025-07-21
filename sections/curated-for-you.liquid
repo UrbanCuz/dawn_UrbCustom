@@ -24,7 +24,8 @@
 
             {% if products.size > 0 %}
                 {% for product in products %}
-                    <img src="{{ product.image | image_url: '480x480' }}" alt="{{ product.title }}" class="product-image" height="480" width="480"/>
+                    {% comment %} <img src="{{ product.image | image_url: '480x480' }}" alt="{{ product.title }}" class="product-image" height="480" width="480"/> {% endcomment %}
+                    <p>{{ product.title }}</p>
                 {% endfor %}
             {% else %}
                 <p>No products found in this collection.</p>
