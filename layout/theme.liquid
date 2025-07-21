@@ -42,6 +42,8 @@
     {%- endif -%}
 
     {{ content_for_header }}
+    {{ 'glide.core.min.css' |  asset_url |  stylesheet_tag }}
+    {{ 'glide.theme.min.css' |  asset_url |  stylesheet_tag }}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -375,5 +377,21 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {{ 'glide.min.js' | asset_url | script_tag }}
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var glide = new Glide('.glide', {
+          type: 'carousel',
+          perView: 1,
+          autoplay: 5000,
+          animationDuration: 600,
+          animationTimingFunc: 'ease-in-out',
+        });
+
+        glide.mount();
+      });
+    </script>
   </body>
 </html>
