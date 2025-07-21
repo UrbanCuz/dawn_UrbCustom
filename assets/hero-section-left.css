@@ -45,13 +45,15 @@
 .description {
   color: #ffffff;
   margin-top: 60px;
-  
+
+}
+
+.button-container {
+    margin-top: 30px;
 }
 
 .hero-btn {
-    background-color: #d51a1a;
-    color: #ffffff;
-    padding: 10px 20px;
+    padding: 12px 50px;
     border-radius: 5px;
     text-decoration: none;
 }
