@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+    {% comment %} Glide.js cdn {% endcomment %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.theme.min.css">
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -42,8 +45,8 @@
     {%- endif -%}
 
     {{ content_for_header }}
-    {{ 'glide.core.min.css' |  asset_url |  stylesheet_tag }}
-    {{ 'glide.theme.min.css' |  asset_url |  stylesheet_tag }}
+    {% comment %} {{ 'glide.core.min.css' |  asset_url |  stylesheet_tag }}
+    {{ 'glide.theme.min.css' |  asset_url |  stylesheet_tag }} {% endcomment %}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -378,8 +381,9 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {{ 'glide.min.js' | asset_url | script_tag }}
-
+    {% comment %} {{ 'glide.min.js' | asset_url | script_tag }} {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/glide.min.js"></script>
+    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         var glide = new Glide('.glide', {
