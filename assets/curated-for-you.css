@@ -1,0 +1,24 @@
+.curated-for-you__heading {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+@media screen and (min-width: 750px) {
+  .curated-for-you__heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem
+  }
+}
+
+.curated-for-you__empty {
+    text-align: center;
+    padding: 60px 0;
+    color: rgba(var(--color-foreground), 0.75);
+}
+
+.curated-for-you__empty p {
+    margin: 0;
+    font-size: 1,1rem;
+}

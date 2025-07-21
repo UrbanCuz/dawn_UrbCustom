@@ -47,6 +47,13 @@
         "item4_link": ""
       }
     },
+    "curated-for-you": {
+      "type": "curated-for-you",
+      "settings": {
+        "title": "Curated for You",
+        "collection": "all",
+      }
+    },
     "hero-section": {
       "type": "hero-section",
       "disabled": true,
@@ -93,6 +100,7 @@
   "order": [
     "hero-section-left",
     "explore-products",
+    "curated-for-you",
     "hero-section",
     "featured_collection"
   ]
