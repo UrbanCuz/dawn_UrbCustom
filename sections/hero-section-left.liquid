@@ -10,8 +10,12 @@
       <h1 class="lower__title" style="color: {{ section.settings.lower_title_color }}">{{ section.settings.lower_title }}</h1>
       <p class="description" style="color: {{ section.settings.description_color }};">
         {{ section.settings.description }}</p>
-      <a href="/collections/all" class="hero-btn">Shop Wall Art</a>
-      <a href="/collections/all" class="hero-btn">Shop Apparel</a>
+      <a href="{{ section.settings.button_left_url }}" class="hero-btn" 
+        style="color: {{ section.settings.btn_left_color }}; background-color: {{ section.settings.bg_btn_left_color }};"
+      >{{ section.settings.button_left_text }}</a>
+      <a href="{{ section.settings.button_right_url }}" class="hero-btn" 
+        style="color: {{ section.settings.btn_right_color }}; background-color: {{ section.settings.bg_btn_right_color }};"
+      >{{ section.settings.button_right_text }}</a>
     </div>
   </div>
 
@@ -68,6 +72,52 @@
       "id": "description_color",
       "label": "Description Color",
       "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "button_left_text",
+      "label": "Button Left Text",
+      "default": "Shop Wall Art"
+    },
+    {
+      "type": "url",
+      "id": "button_left_url",
+      "label": "Button Left URL"
+    },
+    {
+      "type": "color",
+      "id": "btn_left_color",
+      "label": "Button Left Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "bg_btn_left_color",
+      "label": "Button Left Background Color",
+      "default": "#ED1C24"
+    },
+    {
+      "type": "text",
+      "id": "button_right_text",
+      "label": "Button Right Text",
+      "default": "Shop Apparel"
+    },
+    {
+      "type": "url",
+      "id": "button_right_url",
+      "label": "Button Right URL"
+    },
+    {
+      "type": "color",
+      "id": "btn_right_color",
+      "label": "Button Right Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "bg_btn_right_color",
+      "label": "Button Right Background Color",
+      "default": "#ED1C24"
     }
   ]
 
