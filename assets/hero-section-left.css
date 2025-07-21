@@ -50,6 +50,11 @@
 
 .button-container {
     margin-top: 30px;
+    /* max-width: 640px; */
+    display: flex;
+    justify-content: flex-start;
+    gap: 35px;
+
 }
 
 .hero-btn {
