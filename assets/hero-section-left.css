@@ -32,7 +32,7 @@
   color: #d51a1a;
   margin: 10px 0;
   font-size: 48px;
-  font-weight: bold;
+  font-weight: var(--font-body-family);
 }
 
 .lower-title {
