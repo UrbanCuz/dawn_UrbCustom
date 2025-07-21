@@ -20,19 +20,28 @@
 
         {% if section.settings.collection != blank %}
             {% assign collection = collections[section.settings.collection] %}
-            {% assign products = collection.products | slice: 0, 7 %}
-
-            {% if products.size > 0 %}
-                {% for product in products %}
-                    {% comment %} <img src="{{ product.image | image_url: '480x480' }}" alt="{{ product.title }}" class="product-image" height="480" width="480"/> {% endcomment %}
-                    <p>{{ product.title }}</p>
-                {% endfor %}
+            
+            {% if collection.products.size > 0 %}
+                <div class="product-grid">
+                    {% for product in collection.products limit: 7 %}
+                        <div class="product-item">
+                            <a href="{{ product.url }}">
+                                <img src="{{ product.featured_image | image_url: '480x480' }}" 
+                                     alt="{{ product.featured_image.alt | escape }}" 
+                                     class="product-image" 
+                                     loading="lazy"
+                                     width="480"
+                                     height="480">
+                                <h3 class="product-title">{{ product.title }}</h3>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             {% else %}
-                <p>No products found in this collection.</p>
+                <p>No products found in the "{{ collection.title }}" collection.</p>
             {% endif %}
-           
         {% else %}
-            <p>No collection</p>
+            <p>Please select a collection in the theme editor.</p>
         {% endif %}
     </div>
 </div>
