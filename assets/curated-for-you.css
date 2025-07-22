@@ -38,3 +38,22 @@
     margin: 0;
     font-size: 1,1rem;
 }
+
+.glide__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.glide__arrow--left {
+  left: -20px;
+}
+
+.glide__arrow--right {
+  right: -20px;
+}
