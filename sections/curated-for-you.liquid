@@ -42,12 +42,12 @@
                             {% endfor %}
                         </ul>
                     </div>
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Previous</button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
+                    </div>
                 </div>
 
-                <div class="glide__arrows" data-glide-el="controls">
-                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Previous</button>
-                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
-                </div>
             {% else %}
                 <p>No products found in the "{{ collection.title }}" collection.</p>
             {% endif %}
