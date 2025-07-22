@@ -28,24 +28,26 @@
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
                             {% for product in collection.products limit: 7 %}
-                                <li class="glide__slide product-item">
-                                    <a href="{{ product.url }}">
-                                        <img src="{{ product.featured_image | img_url: 'master' }}" 
-                                            alt="{{ product.featured_image.alt | escape }}" 
-                                            class="product-image" 
-                                            loading="lazy"
-                                            width="auto"
-                                            height="auto">
-                                        <h3 class="product-title">{{ product.title }}</h3>
-                                    </a>
+                                <li class="glide__slide">
+                                    <div class="product-item">
+                                        <a href="{{ product.url }}">
+                                            <img src="{{ product.featured_image | img_url: 'master' }}" 
+                                                alt="{{ product.featured_image.alt | escape }}" 
+                                                class="product-image" 
+                                                loading="lazy"
+                                                width="auto"
+                                                height="auto">
+                                            <h3 class="product-title">{{ product.title }}</h3>
+                                        </a>
+                                    </div>
                                 </li>
                             {% endfor %}
                         </ul>
                     </div>
-                    {% comment %} <div class="glide__arrows" data-glide-el="controls">
+                    <div class="glide__arrows" data-glide-el="controls">
                         <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Previous</button>
                         <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
-                    </div> {% endcomment %}
+                    </div>
                 </div>
 
             {% else %}
