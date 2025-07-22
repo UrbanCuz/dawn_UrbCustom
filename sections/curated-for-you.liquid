@@ -29,7 +29,7 @@
                         <ul class="glide__slides">
                             {% for product in collection.products limit: 7 %}
                                 <li class="glide__slide">
-                                    <div class="">
+                                    <div class="product-item">
                                         <a href="{{ product.url }}">
                                             <img src="{{ product.featured_image | img_url: 'master' }}" 
                                                 alt="{{ product.featured_image.alt | escape }}" 
