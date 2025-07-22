@@ -27,7 +27,7 @@
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
-                            {% for product in collection.products limit: 7 %}
+                            {% for product in collection.products slice: 0, 7 %}
                                 <li class="glide__slide">
                                     <div class="product-item">
                                         <a href="{{ product.url }}">
