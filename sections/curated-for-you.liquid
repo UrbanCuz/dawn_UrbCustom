@@ -57,6 +57,20 @@
             <p>Please select a collection in the theme editor.</p>
         {% endif %}
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new Glide('.glide', {
+            type: 'carousel',
+            perView: 4,
+            gap: 20,
+            breakpoints: {
+                768: { perView: 2 },
+                480: { perView: 1 }
+            }
+            }).mount();
+        });
+    </script>
 </div>
 
 {% schema %}
@@ -96,7 +110,7 @@
                 "min": 0,
                 "max": 100,
                 "step": 4,
-                "label": "t:sections.all.padding.padding_top",
+                "label": "Padding Top",
                 "default": 36
             },
             {
@@ -105,13 +119,13 @@
                 "min": 0,
                 "max": 100,
                 "step": 4,
-                "label": "t:sections.all.padding.padding_bottom",
+                "label": "Padding Bottom",
                 "default": 36
             }
             ],
             "presets": [
                 {
-                    "name": "t:sections.curated_for_you.name"
+                    "name": "Curated for you"
                 }
                 ]
     }

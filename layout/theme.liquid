@@ -7,8 +7,8 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     {% comment %} Glide.js cdn {% endcomment %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.theme.min.css">
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.theme.min.css"> {% endcomment %}
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -382,9 +382,11 @@
     {%- endif -%}
 
     <script src="{{ 'glide.min.js' | asset_url }}" defer="defer"></script>
+    {{ 'glide.core.min.css' | asset_url | stylesheet_tag }}
+    {{ 'glide.min.js' | asset_url }}
     {% comment %} <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/glide.min.js"></script> {% endcomment %}
 
-    <script>
+    {% comment %} <script>
       document.addEventListener('DOMContentLoaded', function() {
         var glide = new Glide('.glide', {
           type: 'carousel',
@@ -404,6 +406,6 @@
         });
         glide.mount();
       });
-    </script>
+    </script> {% endcomment %}
   </body>
 </html>
