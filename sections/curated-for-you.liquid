@@ -1,132 +1,185 @@
-{{ 'curated-for-you.css' |  asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-{% style %}
+  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top | times: 0.75 | round : 0 }}px;
-        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round : 0 }}px;
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-
-    @media screen and (min-width: 750px) {
-        .section-{{ section.id }}-padding {
-            padding-top: {{ section.settings.padding_top }}px;
-            padding-bottom: {{ section.settings.padding_bottom }}px;
-        }
-    }
-{% endstyle %}
+  }
+{%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
-    <div class="page-width">
-        {% if section.settings.title != blank %}
-            <h2 class="curated-for-you__heading text center">{{ section.settings.title }}</h2>
-        {% endif %}
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+      <h2 class="curated-for-you__heading text-center">
+        {{ section.settings.title | escape }}
+      </h2>
+    {%- endif -%}
 
-        {% if section.settings.collection != blank %}
-            {% assign collection = collections[section.settings.collection] %}
-
-            {% if collection.products.size > 0 %}
-                <div class="glide">
-                    <div class="glide__track" data-glide-el="track">
-                        <ul class="glide__slides">
-                            {% for product in collection.products slice: 0, 7 %}
-                                <li class="glide__slide">
-                                    <div class="product-item">
-                                        <a href="{{ product.url }}">
-                                            <img src="{{ product.featured_image | image_url: 'master' }}" 
-                                                alt="{{ product.featured_image.alt | escape }}" 
-                                                class="product-image" 
-                                                loading="lazy"
-                                                width="auto"
-                                                height="auto">
-                                            <h3 class="product-title">{{ product.title }}</h3>
-                                        </a>
-                                    </div>
-                                </li>
-                            {% endfor %}
-                        </ul>
+    {%- if section.settings.collection != blank -%}
+      {%- assign collection = collections[section.settings.collection] -%}
+      {%- assign products = collection.products | slice: 0, 8  -%}
+      
+      {%- if products.size > 0 -%}
+        <div class="curated-for-you__carousel-container">
+          <div class="curated-for-you__carousel glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                {%- for product in products -%}
+                  <li class="glide__slide">
+                    <div class="curated-for-you__simple-item">
+                      <div class="curated-for-you__product-image">
+                        {%- if product.featured_media -%}
+                          <img 
+                            src="{{ product.featured_media | image_url: width: 300, height: 300, crop: 'center' }}"
+                            alt="{{ product.featured_media.alt | escape }}"
+                            loading="lazy"
+                            width="300"
+                            height="300"
+                          >
+                        {%- else -%}
+                          <div class="curated-for-you__product-placeholder">
+                            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                      <h3 class="curated-for-you__simple-title">
+                        <a href="{{ product.url }}">{{ product.title }}</a>
+                      </h3>
                     </div>
-                    <div class="glide__arrows" data-glide-el="controls">
-                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Previous</button>
-                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
-                    </div>
-                </div>
-
-            {% else %}
-                <p>No products found in the "{{ collection.title }}" collection.</p>
-            {% endif %}
-        {% else %}
-            <p>Please select a collection in the theme editor.</p>
-        {% endif %}
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            new Glide('.glide', {
-            type: 'carousel',
-            perView: 4,
-            gap: 20,
-            breakpoints: {
-                768: { perView: 2 },
-                480: { perView: 1 }
-            }
-            }).mount();
-        });
-    </script>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+            
+            <div class="curated-for-you__carousel-controls" data-glide-el="controls">
+              <button class="curated-for-you__carousel-btn curated-for-you__carousel-btn--prev" data-glide-dir="<">
+                Previous
+              </button>
+              <button class="curated-for-you__carousel-btn curated-for-you__carousel-btn--next" data-glide-dir=">">
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      {%- else -%}
+        <div class="curated-for-you__empty">
+          <p>No products found in this collection</p>
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <div class="curated-for-you__empty">
+        <p>Please select a collection to display products</p>
+      </div>
+    {%- endif -%}
+  </div>
 </div>
 
-{% schema %}
-    {
-        "name": "Curated for you",
-        "settings": [
-            {
-                "type": "text",
-                "id": "title",
-                "label": "Section Title",
-                "default": "Curated for you"
-            },
-            {
-                "type": "collection",
-                "id": "collection",
-                "label": "Select Collection"
-            },
-            {
-                "type": "checkbox",
-                "id": "show_vendor",
-                "label": "Show Vendor",
-                "default": false
-            },
-            {
-                "type": "checkbox",
-                "id": "show_rating",
-                "label": "Show Rating",
-                "default": true
-            },
-            {
-                "type": "header",
-                "content": "t:sections.all.padding.section_padding_heading"
-            },
-            {
-                "type": "range",
-                "id": "padding_top",
-                "min": 0,
-                "max": 100,
-                "step": 4,
-                "label": "Padding Top",
-                "default": 36
-            },
-            {
-                "type": "range",
-                "id": "padding_bottom",
-                "min": 0,
-                "max": 100,
-                "step": 4,
-                "label": "Padding Bottom",
-                "default": 36
-            }
-            ],
-            "presets": [
-                {
-                    "name": "Curated for you"
-                }
-                ]
+<!-- Glide.js CSS -->
+<link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.6.0/dist/css/glide.theme.min.css">
+
+<!-- Glide.js JavaScript -->
+<script src="https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.min.js"></script>
+
+<script>
+  // Wait for both DOM and Glide to be ready
+  function initCarousel() {
+    const carousel = document.querySelector('.curated-for-you__carousel');
+    if (!carousel) {
+      return;
     }
-{% endschema %}
+    
+    if (typeof Glide === 'undefined') {
+      setTimeout(initCarousel, 100);
+      return;
+    }
+    
+    try {
+      const glide = new Glide(carousel, {
+        type: 'carousel',
+        perView: 2,
+        gap: 20,
+        autoplay: false
+      });
+      
+      glide.mount();
+      
+    } catch (error) {
+      console.error('Error initializing carousel:', error);
+    }
+  }
+  
+  // Start initialization when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousel);
+  } else {
+    initCarousel();
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Curated for You",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Curated for You",
+      "label": "Heading"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": true,
+      "label": "Show product rating"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Curated for You"
+    }
+  ]
+}
+{% endschema %} 
