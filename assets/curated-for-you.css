@@ -208,7 +208,10 @@
   font-size: 14px;
 }
 
-.curated-for-you__simple-tag {
+/* .curated-for-you__simple-tag {
+} */
+
+.curated-for-you__simple-tag-container {
   background-color: #4EA66E;
   color: #ffffff;
   padding: 5px 33px;
