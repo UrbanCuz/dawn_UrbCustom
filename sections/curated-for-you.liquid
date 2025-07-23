@@ -16,16 +16,18 @@
 
 <div class="section-{{ section.id }}-padding">
   <div class="page-width">
-    {%- if section.settings.title != blank -%}
-        <h2 class="curated-for-you__heading text-center">
-        {% assign title_parts = section.settings.title | split: section.settings.colored_word %}
-        {{ title_parts[0] }}
-        <span class="colored-word" style="color: {{ section.settings.colored_word_color }};">
-            {{ section.settings.colored_word }}
-        </span>
-        {% if title_parts.size > 1 %}{{ title_parts[1] }}{% endif %}
-        </h2>
-    {%- endif -%}
+    <div class="title-wrapper">
+        {%- if section.settings.title != blank -%}
+            <h2 class="curated-for-you__heading text-center">
+            {% assign title_parts = section.settings.title | split: section.settings.colored_word %}
+            {{ title_parts[0] }}
+            <span class="colored-word" style="color: {{ section.settings.colored_word_color }};">
+                {{ section.settings.colored_word }}
+            </span>
+            {% if title_parts.size > 1 %}{{ title_parts[1] }}{% endif %}
+            </h2>
+        {%- endif -%}
+    </div>
 
 
     {%- if section.settings.collection != blank -%}
