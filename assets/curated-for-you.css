@@ -78,7 +78,6 @@
   align-items: center;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
 }
 
 .curated-for-you__simple-item:hover {

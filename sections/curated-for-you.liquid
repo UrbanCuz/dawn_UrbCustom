@@ -35,17 +35,17 @@
               <ul class="glide__slides">
                 {%- for product in products limit: 8 -%}
                   <li class="glide__slide">
-                    <div class="curated-for-you__simple-item">
-                        <div class="curated-for-you__simple-tag-container">
-                            {%- comment %} {% if product.tags contains 'new' %}
-                                <span class="curated-for-you__simple-tag">New</span>
-                            {% endif %} {% endcomment %}
-                            {% comment %} {% if product.tags contains 'new' %}
-                                <span class="curated-for-you__simple-tag">New</span>
-                            {% endif %} {% endcomment %}
-
+                    <div class="curated-for-you__simple-tag-container">
+                        {%- comment %} {% if product.tags contains 'new' %}
                             <span class="curated-for-you__simple-tag">New</span>
-                        </div>
+                        {% endif %} {% endcomment %}
+                        {% comment %} {% if product.tags contains 'new' %}
+                            <span class="curated-for-you__simple-tag">New</span>
+                        {% endif %} {% endcomment %}
+
+                        <span class="curated-for-you__simple-tag">New</span>
+                    </div>
+                    <div class="curated-for-you__simple-item">
                       <div class="curated-for-you__product-image">
                             {%- if product.featured_media -%}
                             <img 
