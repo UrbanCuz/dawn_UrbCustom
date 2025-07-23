@@ -163,11 +163,11 @@
 }
 
 .curated-for-you__carousel-btn--prev {
-  margin-left: -24px;
+  margin-left: -44px;
 }
 
 .curated-for-you__carousel-btn--next {
-  margin-right: -24px;
+  margin-right: -44px;
 }
 
 @media screen and (max-width: 749px) {
