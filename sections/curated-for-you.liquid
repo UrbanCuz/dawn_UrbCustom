@@ -37,9 +37,11 @@
                   <li class="glide__slide">
                     <div class="curated-for-you__simple-item">
                         <div>
-                            {% if product.tags contains 'new' %}
+                            {% comment %} {% if product.tags contains 'new' %}
                                 <span class="curated-for-you__simple-tag">New</span>
-                            {% endif %}
+                            {% endif %} {% endcomment %}
+
+                            <span class="curated-for-you__simple-tag">New</span>
                         </div>
                       <div class="curated-for-you__product-image">
                             {%- if product.featured_media -%}
