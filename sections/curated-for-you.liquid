@@ -22,14 +22,16 @@
 
     {%- if section.settings.collection != blank -%}
       {%- assign collection = collections[section.settings.collection] -%}
-      {%- assign products = collection.products | slice: 0, 8  -%}
+      
+      <!-- Use link_to_collection to force product loading -->
+      {%- assign products = collection.products -%}
       
       {%- if products.size > 0 -%}
         <div class="curated-for-you__carousel-container">
           <div class="curated-for-you__carousel glide">
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
-                {%- for product in products -%}
+                {%- for product in products limit: 8 -%}
                   <li class="glide__slide">
                     <div class="curated-for-you__simple-item">
                       <div class="curated-for-you__product-image">
@@ -102,9 +104,21 @@
     try {
       const glide = new Glide(carousel, {
         type: 'carousel',
-        perView: 2,
+        perView: 4,
         gap: 20,
-        autoplay: false
+        autoplay: false,
+        peek: 0,
+        breakpoints: {
+          1024: {
+            perView: 3
+          },
+          768: {
+            perView: 2
+          },
+          480: {
+            perView: 1
+          }
+        }
       });
       
       glide.mount();
