@@ -56,7 +56,7 @@
                             <a href="{{ product.url }}">{{ product.title }}</a>
                           </h3>
                           <p>{{ product.rating }}</p>
-                          <p>{{ product.price | money }}</p>
+                          <p class="curated-for-you__simple-price-line">Starting at <span class="curated-for-you__simple-price">{{ product.price | money }}</span></p>
                       </div>
                     </div>
                   </li>

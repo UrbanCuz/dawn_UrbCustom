@@ -196,3 +196,14 @@
   margin: 0;
   font-size: 1.1rem;
 } 
+
+.curated-for-you__simple-price-line {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.curated-for-you__simple-price {
+  font-weight: 500px;
+  color: #ED1C24;
+  font-size: 14px;
+}
