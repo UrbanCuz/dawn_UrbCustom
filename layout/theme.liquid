@@ -381,8 +381,8 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {% comment %} {{ 'glide.min.js' | asset_url | script_tag }} {% endcomment %}
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/glide.min.js"></script>
+    <script src="{{ 'glide.min.js' | asset_url }}" defer="defer"></script>
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/glide.min.js"></script> {% endcomment %}
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
