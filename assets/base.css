@@ -38,6 +38,7 @@
   --font-heading-weight: 700;
   --font-semibold-family: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-semibold-weight: 600;
+  --colored-word-color: #ED1C24;
 }
 
 .product-card-wrapper .card,
@@ -107,6 +108,10 @@
 }
 
 /* base */
+
+.colored-word {
+  color: var(--colored-word-color);
+}
 
 .page-width {
   max-width: var(--page-width);

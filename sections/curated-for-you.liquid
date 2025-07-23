@@ -17,10 +17,16 @@
 <div class="section-{{ section.id }}-padding">
   <div class="page-width">
     {%- if section.settings.title != blank -%}
-      <h2 class="curated-for-you__heading text-center">
-        {{ section.settings.title | escape }}
-      </h2>
+        <h2 class="curated-for-you__heading text-center">
+        {% assign title_parts = section.settings.title | split: section.settings.colored_word %}
+        {{ title_parts[0] }}
+        <span class="colored-word" style="color: {{ section.settings.colored_word_color }};">
+            {{ section.settings.colored_word }}
+        </span>
+        {% if title_parts.size > 1 %}{{ title_parts[1] }}{% endif %}
+        </h2>
     {%- endif -%}
+
 
     {%- if section.settings.collection != blank -%}
       {%- assign collection = collections[section.settings.collection] -%}
@@ -163,6 +169,19 @@
       "id": "title",
       "default": "Curated for You",
       "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "colored_word",
+      "label": "Word to color differently",
+      "default": "You",
+      "info": "Enter the word from your heading that should be colored differently"
+    },
+    {
+      "type": "color",
+      "id": "colored_word_color",
+      "label": "Colored word color",
+      "default": "#ED1C24"
     },
     {
       "type": "collection",
