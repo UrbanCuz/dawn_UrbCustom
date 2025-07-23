@@ -153,6 +153,8 @@
   transition: all 0.3s ease;
   pointer-events: auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 50px;
+  height: 50px;
 }
 
 .curated-for-you__carousel-btn:hover {
