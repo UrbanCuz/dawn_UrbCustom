@@ -44,11 +44,11 @@
   }
 }
 
-.curated-for-you__carousel-container {
+/* .curated-for-you__carousel-container {
   position: relative;
   margin-top: 2rem;
   overflow: hidden;
-}
+} */
 
 .curated-for-you__carousel {
   position: relative;
