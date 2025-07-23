@@ -54,6 +54,12 @@
         "collection": "all",
       }
     },
+    "customize-your-own": {
+      "type": "customize-your-own",
+      "settings": {
+        "title": "Customize Your Own"
+      },
+    },
     "hero-section": {
       "type": "hero-section",
       "disabled": true,
