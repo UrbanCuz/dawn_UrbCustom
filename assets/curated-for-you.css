@@ -208,14 +208,14 @@
   font-size: 14px;
 }
 
-/* .curated-for-you__simple-tag {
-} */
+.curated-for-you__simple-tag {
+  font-size: 9px;
+}
 
 .curated-for-you__simple-tag-container {
   background-color: #4EA66E;
   color: #ffffff;
   padding: 2px 33px;
-  font-size: 9px;
   /* position: absolute;
   top: 0px;
   left: 0px; */
