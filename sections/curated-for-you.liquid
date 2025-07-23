@@ -34,52 +34,52 @@
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
                 {%- for product in products limit: 8 -%}
-                  <li class="glide__slide">
-                    <div class="curated-for-you__simple-tag-container">
-                        {%- comment %} {% if product.tags contains 'new' %}
-                            <span class="curated-for-you__simple-tag">New</span>
-                        {% endif %} {% endcomment %}
-                        {% comment %} {% if product.tags contains 'new' %}
-                            <span class="curated-for-you__simple-tag">New</span>
-                        {% endif %} {% endcomment %}
+                    <li class="glide__slide">
+                        <div class="curated-for-you__simple-item">
+                            <div class="curated-for-you__simple-tag-container">
+                                {%- comment %} {% if product.tags contains 'new' %}
+                                    <span class="curated-for-you__simple-tag">New</span>
+                                {% endif %} {% endcomment %}
+                                {% comment %} {% if product.tags contains 'new' %}
+                                    <span class="curated-for-you__simple-tag">New</span>
+                                {% endif %} {% endcomment %}
 
-                        <span class="curated-for-you__simple-tag">New</span>
-                    </div>
-                    <div class="curated-for-you__simple-item">
-                      <div class="curated-for-you__product-image">
-                            {%- if product.featured_media -%}
-                            <img 
-                                src="{{ product.featured_media | image_url: width: 300, height: 300, crop: 'center' }}"
-                                alt="{{ product.featured_media.alt | escape }}"
-                                loading="lazy"
-                                width="300"
-                                height="300"
-                            >
-                            {%- else -%}
-                            <div class="curated-for-you__product-placeholder">
-                                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                <span class="curated-for-you__simple-tag">New</span>
                             </div>
-                            {%- endif -%}
-                      </div>
-                      <div class="curated-for-you__simple-content">
-                          <h3 class="curated-for-you__simple-title">
-                            <a href="{{ product.url }}">{{ product.title }}</a>
-                          </h3>
-                          <p>{{ product.rating }}</p>
-                          <p class="curated-for-you__simple-price-line">Starting at <span class="curated-for-you__simple-price">{{ product.price | money }}</span></p>
-                      </div>
-                    </div>
-                  </li>
+                            <div class="curated-for-you__product-image">
+                                {%- if product.featured_media -%}
+                                <img 
+                                    src="{{ product.featured_media | image_url: width: 300, height: 300, crop: 'center' }}"
+                                    alt="{{ product.featured_media.alt | escape }}"
+                                    loading="lazy"
+                                    width="300"
+                                    height="300"
+                                >
+                                {%- else -%}
+                                <div class="curated-for-you__product-placeholder">
+                                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                </div>
+                                {%- endif -%}
+                            </div>
+                            <div class="curated-for-you__simple-content">
+                                <h3 class="curated-for-you__simple-title">
+                                <a href="{{ product.url }}">{{ product.title }}</a>
+                                </h3>
+                                <p>{{ product.rating }}</p>
+                                <p class="curated-for-you__simple-price-line">Starting at <span class="curated-for-you__simple-price">{{ product.price | money }}</span></p>
+                            </div>
+                        </div>
+                    </li>
                 {%- endfor -%}
               </ul>
             </div>
             
             <div class="curated-for-you__carousel-controls" data-glide-el="controls">
               <button class="curated-for-you__carousel-btn curated-for-you__carousel-btn--prev" data-glide-dir="<">
-                Previous
+                {{ 'chevron-left.svg' | inline_asset_content }}
               </button>
               <button class="curated-for-you__carousel-btn curated-for-you__carousel-btn--next" data-glide-dir=">">
-                Next
+                {{ 'chevron-right.svg' | inline_asset_content }}
               </button>
             </div>
           </div>
