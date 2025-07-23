@@ -30,7 +30,7 @@
                             {% for product in collection.products slice: 0, 7 %}
                                 <li class="glide__slide">
                                     <div class="product-item">
-                                        <a href="{{ product.url }}">
+                                        {% comment %} <a href="{{ product.url }}">
                                             <img src="{{ product.featured_image | img_url: 'master' }}" 
                                                 alt="{{ product.featured_image.alt | escape }}" 
                                                 class="product-image" 
@@ -38,7 +38,8 @@
                                                 width="auto"
                                                 height="auto">
                                             <h3 class="product-title">{{ product.title }}</h3>
-                                        </a>
+                                        </a> {% endcomment %}
+                                        <h3 class="product-title">{{ product.title }}</h3>
                                     </div>
                                 </li>
                             {% endfor %}
