@@ -37,23 +37,25 @@
                   <li class="glide__slide">
                     <div class="curated-for-you__simple-item">
                       <div class="curated-for-you__product-image">
-                        {%- if product.featured_media -%}
-                          <img 
-                            src="{{ product.featured_media | image_url: width: 300, height: 300, crop: 'center' }}"
-                            alt="{{ product.featured_media.alt | escape }}"
-                            loading="lazy"
-                            width="300"
-                            height="300"
-                          >
-                        {%- else -%}
-                          <div class="curated-for-you__product-placeholder">
-                            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                          </div>
-                        {%- endif -%}
+                            {%- if product.featured_media -%}
+                            <img 
+                                src="{{ product.featured_media | image_url: width: 300, height: 300, crop: 'center' }}"
+                                alt="{{ product.featured_media.alt | escape }}"
+                                loading="lazy"
+                                width="300"
+                                height="300"
+                            >
+                            {%- else -%}
+                            <div class="curated-for-you__product-placeholder">
+                                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                            </div>
+                            {%- endif -%}
                       </div>
-                      <h3 class="curated-for-you__simple-title">
-                        <a href="{{ product.url }}">{{ product.title }}</a>
-                      </h3>
+                      <div class="curated-for-you__simple-content">
+                          <h3 class="curated-for-you__simple-title">
+                            <a href="{{ product.url }}">{{ product.title }}</a>
+                          </h3>
+                      </div>
                     </div>
                   </li>
                 {%- endfor -%}
