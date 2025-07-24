@@ -91,6 +91,16 @@
         "description": "Upload your design or idea and we’ll turn it into custom art or apparel, crafted to match your style perfectly."
       }
     },
+    "browse_by_category": {
+      "type": "browse-by-category",
+      "settings": {
+        "title": "Browse by Category",
+        "collections_to_show": 7,
+        "collections": [],
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "hero-section": {
       "type": "hero-section",
       "disabled": true,
@@ -139,6 +149,7 @@
     "explore-products",
     "curated-for-you",
     "customize-your-own",
+    "browse_by_category",
     "hero-section",
     "featured_collection"
   ]
