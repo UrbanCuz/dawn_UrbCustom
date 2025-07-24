@@ -51,14 +51,45 @@
       "type": "curated-for-you",
       "settings": {
         "title": "Curated for You",
+        "colored_word": "You",
+        "colored_word_color": "#ed1c24",
         "collection": "all",
+        "show_vendor": false,
+        "show_rating": true,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "customize-your-own": {
       "type": "customize-your-own",
-      "settings": {
-        "title": "Customize Your Own"
+      "blocks": {
+        "card_CNieew": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-07-23_at_8.02.55_PM.png",
+            "title": "Custom Art",
+            "description": "Bring your vision to life with our custom art services.",
+            "link": ""
+          }
+        },
+        "card_7tPFqD": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-07-23_at_8.03.18_PM.png",
+            "title": "Custom Art",
+            "description": "Bring your vision to life with our custom art services.",
+            "link": ""
+          }
+        }
       },
+      "block_order": [
+        "card_CNieew",
+        "card_7tPFqD"
+      ],
+      "settings": {
+        "title": "Customize Your Own",
+        "description": "Upload your design or idea and we’ll turn it into custom art or apparel, crafted to match your style perfectly."
+      }
     },
     "hero-section": {
       "type": "hero-section",
