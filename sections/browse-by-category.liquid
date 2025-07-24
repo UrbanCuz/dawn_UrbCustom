@@ -1,0 +1,189 @@
+{%- style -%}
+  @import url('{{ 'browse-by-category.css' | asset_url }}');
+{%- endstyle -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="title-wrapper">
+        {%- if section.settings.title != blank -%}
+            <h2 class="curated-for-you__heading text-center">
+            {% assign title_parts = section.settings.title | split: section.settings.colored_word %}
+            {{ title_parts[0] }}
+            <span class="colored-word" style="color: {{ section.settings.colored_word_color }};">
+                {{ section.settings.colored_word }}
+            </span>
+            {% if title_parts.size > 1 %}{{ title_parts[1] }}{% endif %}
+            </h2>
+        {%- endif -%}
+    </div>
+
+    {%- assign collections_list = section.settings.collections | default: collections | map: 'handle' -%}
+    {%- assign collections_to_show = collections_list | slice: 0, section.settings.collections_to_show -%}
+
+    {%- if collections_to_show.size > 0 -%}
+      <div class="browse-by-category__carousel-container">
+        <div class="browse-by-category__carousel glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              {%- for handle in collections_to_show -%}
+                {%- assign collection = collections[handle] -%}
+                <li class="glide__slide">
+                  <a href="{{ collection.url }}" class="browse-by-category__item">
+                    <div class="browse-by-category__image-wrapper">
+                      {%- if collection.image -%}
+                        <img src="{{ collection.image | image_url: width: 300, height: 300, crop: 'center' }}" alt="{{ collection.title | escape }}" loading="lazy" width="300" height="300">
+                      {%- else -%}
+                        <div class="browse-by-category__placeholder">
+                          {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                    <div class="browse-by-category__title">{{ collection.title }}</div>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+          <div class="browse-by-category__carousel-controls" data-glide-el="controls">
+            <button class="browse-by-category__carousel-btn browse-by-category__carousel-btn--prev" data-glide-dir="<">
+              <span class="browse-by-category__icon">
+                {% render 'chevron-left' %}
+              </span>
+            </button>
+            <button class="browse-by-category__carousel-btn browse-by-category__carousel-btn--next" data-glide-dir=">">
+              <span class="browse-by-category__icon">
+                {% render 'chevron-right' %}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="browse-by-category__empty">
+        <p>No collections found.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.6.0/dist/css/glide.theme.min.css">
+<script src="https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.min.js"></script>
+
+<script>
+  function initBrowseByCategoryCarousel() {
+    var carousel = document.querySelector('.browse-by-category__carousel');
+    if (!carousel) return;
+    if (typeof Glide === 'undefined') {
+      setTimeout(initBrowseByCategoryCarousel, 100);
+      return;
+    }
+    try {
+      var glide = new Glide(carousel, {
+        type: 'carousel',
+        perView: 4,
+        gap: 20,
+        peek: 0,
+        breakpoints: {
+          1024: { perView: 4 },
+          768: { perView: 3 },
+          480: { perView: 1 }
+        }
+      });
+      glide.mount();
+    } catch (e) {
+      console.error('Error initializing Browse by Category carousel:', e);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBrowseByCategoryCarousel);
+  } else {
+    initBrowseByCategoryCarousel();
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Browse by Category",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Browse by Category",
+      "label": "Section title"
+    },
+    {
+      "type": "text",
+      "id": "colored_word",
+      "label": "Word to color differently",
+      "default": "Category",
+      "info": "Enter the word from your heading that should be colored differently"
+    },
+    {
+      "type": "color",
+      "id": "colored_word_color",
+      "label": "Colored word color",
+      "default": "#ED1C24"
+    },
+    {
+      "type": "number",
+      "id": "collections_to_show",
+      "min": 1,
+      "max": 20,
+      "default": 7,
+      "label": "Number of collections to show"
+    },
+    {
+      "type": "collection_list",
+      "id": "collections",
+      "label": "Collections to include (optional)",
+      "info": "Leave blank to show all collections."
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Browse by Category"
+    }
+  ]
+}
+{% endschema %} 
