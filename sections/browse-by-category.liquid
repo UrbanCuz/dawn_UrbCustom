@@ -18,7 +18,7 @@
     </div>
 
     {%- assign collections_list = section.settings.collections | default: collections | map: 'handle' -%}
-    {%- assign collections_to_show = collections_list | slice: 0, section.settings.collections_to_show -%}
+    {%- assign collections_to_show = collections_list | slice: 0, 7 -%}
 
     {%- if collections_to_show.size > 0 -%}
       <div class="browse-by-category__carousel-container">
@@ -126,14 +126,6 @@
       "id": "colored_word_color",
       "label": "Colored word color",
       "default": "#ED1C24"
-    },
-    {
-      "type": "number",
-      "id": "collections_to_show",
-      "min": 1,
-      "max": 20,
-      "default": 7,
-      "label": "Number of collections to show"
     },
     {
       "type": "collection_list",
