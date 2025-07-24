@@ -91,16 +91,6 @@
         "description": "Upload your design or idea and we’ll turn it into custom art or apparel, crafted to match your style perfectly."
       }
     },
-    "browse-by-category": {
-      "type": "browse-by-category",
-      "settings": {
-        "title": "Browse by Category",
-        "collections_to_show": 7,
-        "collections": [],
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "hero-section": {
       "type": "hero-section",
       "disabled": true,
@@ -142,6 +132,23 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "browse_by_category_8e4zpa": {
+      "type": "browse-by-category",
+      "name": "Browse by Category",
+      "settings": {
+        "title": "Browse by Category",
+        "colored_word": "Category",
+        "colored_word_color": "#ED1C24",
+        "collections": [
+          "arts-and-culture-apparel",
+          "best-selling",
+          "boss-lady",
+          "bundles-3",
+          "cartoon-3",
+          "family-apparel"
+        ]
+      }
     }
   },
   "order": [
@@ -149,8 +156,8 @@
     "explore-products",
     "curated-for-you",
     "customize-your-own",
-    "browse-by-category",
     "hero-section",
-    "featured_collection"
+    "featured_collection",
+    "browse_by_category_8e4zpa"
   ]
 }
