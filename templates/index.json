@@ -139,7 +139,7 @@
       "settings": {
         "title": "Browse by Category",
         "colored_word": "Category",
-        "colored_word_color": "#ED1C24",
+        "colored_word_color": "#ed1c24",
         "collections": [
           "arts-and-culture-apparel",
           "best-selling",
@@ -149,14 +149,39 @@
           "family-apparel"
         ]
       }
+    },
+    "why_choose_us_hYpptC": {
+      "type": "why-choose-us",
+      "name": "Why Choose Us",
+      "settings": {
+        "heading": "Why Choose Urban Customz",
+        "feature1": "Canvas Quality",
+        "desc1": "400 gsm Poly-Cotton Canvas with scratch-resistant coating for a premium finish",
+        "show_check1": true,
+        "show_cross1": true,
+        "feature2": "Ink Type",
+        "desc2": "Thick 1.5-Inch Canadian wood frame for durability and a professional gallery feel",
+        "show_check2": true,
+        "show_cross2": true,
+        "feature3": "Customization Options",
+        "desc3": "Eco-solvent, latex, and UV inks for vibrant and long-lasting colors",
+        "show_check3": true,
+        "show_cross3": true,
+        "feature4": "Turnaround Time",
+        "desc4": "Fast and Reliable",
+        "show_check4": true,
+        "show_cross4": true,
+        "feature5": "Durability",
+        "desc5": "Stretches/Folds Without Cracking",
+        "show_check5": true,
+        "show_cross5": true,
+        "feature6": "Community Connection",
+        "desc6": "Social engagement, exclusive designs",
+        "show_check6": true,
+        "show_cross6": true
+      }
     }
   },
-   "why_choose_us": {
-      "type": "why-choose-us",
-      "settings": {
-        "title": "Why Choose Us"
-      }
-    },
   "order": [
     "hero-section-left",
     "explore-products",
@@ -165,6 +190,6 @@
     "hero-section",
     "featured_collection",
     "browse_by_category_8e4zpa",
-    "why_choose_us"
+    "why_choose_us_hYpptC"
   ]
 }
