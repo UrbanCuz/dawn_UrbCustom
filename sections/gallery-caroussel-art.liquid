@@ -1,0 +1,206 @@
+{% schema %}
+{
+  "name": "Gallery for custom canvas",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Tag @urbancustomzboutique to get featured"
+    },
+    {
+      "type": "url",
+      "id": "tag_url",
+      "label": "Tag URL"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "View Gallery"
+    }
+  ],
+   "blocks": [
+    {
+     "type": "video",
+      "name":"Gallery Video",
+      "settings": [
+        {
+          "type": "video",
+          "id":"gallery_video",
+          "label":"Gallery Video Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery Custom canvas",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %} 
+{%  for collection in product.collections %}
+  {% if collection.handle == "custom-wall-art" %}
+    {% assign is_in_collection = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% if is_in_collection %}
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slick Slider</title>
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+.customer-gallery-section {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.gallery-header h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-header h2 span {
+  color: red;
+}
+
+.gallery-header p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-header a {
+  color: green;
+  text-decoration: none;
+}
+
+        .custom-slider1 {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .custom-slider1 img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .slick-slide {
+            margin: 0 10px;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+      
+.gallery-button {
+  margin-top: 2rem;
+}
+
+.btn-view-gallery {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: red;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-view-gallery:hover {
+  background-color: darkred;
+}
+    </style>
+</head>
+<body>
+<section class="customer-gallery-section">
+  <div class="gallery-header">
+    <h2>The Internet <span>Loves</span> Urban Customz</h2>
+    <p>
+      {{ section.settings.subheading | escape }}
+    </p>
+  </div>
+    <div class="custom-slider1">
+          {% for block in section.blocks %}
+      
+        <div class="img_div">
+          {% if block.settings.gallery_video != blank %}
+           
+            <video controls width="100%">
+              <source src="{{ block.settings.gallery_video.sources[1].url }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            {% else %}
+            <!-- <img src="{{ block.settings.gallery_image | img_url: '750x750' }}" alt="Image 1"> -->
+            error
+          {% endif %}
+            
+          
+            
+          
+            
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="gallery-button">
+    <a href="{{ section.settings.button_link }}" class="btn-view-gallery">{{ section.settings.button_text }}</a>
+  </div>
+</section>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick JS -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.custom-slider1').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: false,
+                responsive: [
+                    {
+                        breakpoint: 1024, // Tablet
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 768, // Mobile
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
+  {% endif %}
