@@ -151,6 +151,12 @@
       }
     }
   },
+   "why_choose_us": {
+      "type": "why-choose-us",
+      "settings": {
+        "title": "Why Choose Us"
+      }
+    },
   "order": [
     "hero-section-left",
     "explore-products",
@@ -158,6 +164,7 @@
     "customize-your-own",
     "hero-section",
     "featured_collection",
-    "browse_by_category_8e4zpa"
+    "browse_by_category_8e4zpa",
+    "why_choose_us"
   ]
 }
