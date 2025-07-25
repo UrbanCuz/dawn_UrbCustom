@@ -182,6 +182,12 @@
       }
     }
   },
+  "gallery_caroussel_art": {
+      "type": "gallery-caroussel-art",
+      "name": "Gallery Caroussel",
+      "settings": {
+      }
+  },
   "order": [
     "hero-section-left",
     "explore-products",
@@ -190,6 +196,7 @@
     "hero-section",
     "featured_collection",
     "browse_by_category_8e4zpa",
-    "why_choose_us_hYpptC"
+    "why_choose_us_hYpptC",
+    "gallery_caroussel_art"
   ]
 }
