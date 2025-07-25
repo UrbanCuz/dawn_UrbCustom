@@ -115,15 +115,20 @@
             <div class="header">Competitors</div>
 
             {%- for i in (1..6) -%}
-              <div class="row feature">{{ section.settings["feature" | append: i] }}</div>
-              <div class="row description">{{ section.settings["desc" | append: i] }}</div>
+              {% assign feature_key = 'feature' | append: i %}
+              {% assign desc_key = 'desc' | append: i %}
+              {% assign show_check_key = 'show_check' | append: i %}
+              {% assign show_cross_key = 'show_cross' | append: i %}
+
+              <div class="row feature">{{ section.settings[feature_key] }}</div>
+              <div class="row description">{{ section.settings[desc_key] }}</div>
               <div class="row check">
-                {%- if section.settings["show_check" | append: i] -%}
+                {%- if section.settings[show_check_key] -%}
                   <img src="https://cdn.shopify.com/s/files/1/0904/9014/2994/files/Checkmark.png?v=1734637330" alt="check">
                 {%- endif -%}
               </div>
               <div class="row cross">
-                {%- if section.settings["show_cross" | append: i] -%}
+                {%- if section.settings[show_cross_key] -%}
                   <img src="https://cdn.shopify.com/s/files/1/0904/9014/2994/files/Cancel_1.png?v=1734637330" alt="cross">
                 {%- endif -%}
               </div>
