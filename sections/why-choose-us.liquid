@@ -1,0 +1,304 @@
+<style>
+  
+
+     .why-choose-us{
+        width: 100%;
+        height: 650px;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #efefef;
+        /* border:1px solid red; */
+    }
+    .why-choose-us .white-back{
+        width: 100%;
+        height: 600px;
+        background-color: #fff;
+    }
+    .why-choose-us .white-back h3{
+        color:black;
+        font-weight: 600;
+        font-size: 21px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 20px;
+        margin-bottom: 20px;
+
+    }
+    .why-choose-us .white-back span{
+        color: #ED1C24;
+    }
+    .grid-parent {
+  display: grid;
+  width:70%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 2fr 1fr 1fr; /* 4 columns */
+  gap: 10px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 470px;
+      @media screen and (max-width:768px){
+        width:90%;
+        max-width:150%;
+        margin-left:auto;
+        margin-right:auto;
+        height:500px;
+        grid-template-columns:100px 200px 100px 100px;
+        overflow:scroll;
+      }
+}
+.grid-parent .header{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius:10px;
+    font-size: 16px;
+    color:white;
+    background-color: #ED1C24;
+}
+.grid-parent .row.feature{
+    padding: 15px;
+    text-align: center;
+    /* border-bottom:1px; */
+    font-size:14px;
+    font-weight: 600;
+    margin-left: 10%;
+}
+.grid-parent .row {
+    border-bottom:1px solid #D9D9D9;
+    
+}
+
+.grid-parent .row.description{
+    font-size: 12px;
+    padding-left: 5%;
+    display: flex;
+    align-items: center;
+}
+.grid-parent .row.check, .grid-parent .row.cross{
+    /* -left: auto;
+    margin-right: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.grid-parent .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius:50px;
+    background-color: red;
+}
+.grid-parent .icon.checkmark{
+    background-color: #c8e6c9;
+    /* color: #56b35a; */
+    font-size: 14px;
+}
+  </style>
+  <section class="why-choose-us">
+    <div class="white-back">
+        <h3>{{ section.settings.heading }}</h3>
+        <div class="grid-parent">
+            <div class="header">Feature</div>
+            <div class="header">Description</div>
+            <div class="header">Urban Customz</div>
+            <div class="header">Competitors</div>
+
+            {%- for i in (1..6) -%}
+              <div class="row feature">{{ section.settings["feature" | append: i] }}</div>
+              <div class="row description">{{ section.settings["desc" | append: i] }}</div>
+              <div class="row check">
+                {%- if section.settings["show_check" | append: i] -%}
+                  <img src="https://cdn.shopify.com/s/files/1/0904/9014/2994/files/Checkmark.png?v=1734637330" alt="check">
+                {%- endif -%}
+              </div>
+              <div class="row cross">
+                {%- if section.settings["show_cross" | append: i] -%}
+                  <img src="https://cdn.shopify.com/s/files/1/0904/9014/2994/files/Cancel_1.png?v=1734637330" alt="cross">
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Choose Us",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Choose <span>Urban Customz</span>"
+    },
+    {% comment %} 6 features, each with description, check, cross {% endcomment %}
+    {
+      "type": "text",
+      "id": "feature1",
+      "label": "Feature 1",
+      "default": "Canvas Quality"
+    },
+    {
+      "type": "textarea",
+      "id": "desc1",
+      "label": "Description 1",
+      "default": "400 gsm Poly-Cotton Canvas with scratch-resistant coating for a premium finish"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_check1",
+      "label": "Show Check 1",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cross1",
+      "label": "Show Cross 1",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "feature2",
+      "label": "Feature 2",
+      "default": "Ink Type"
+    },
+    {
+      "type": "textarea",
+      "id": "desc2",
+      "label": "Description 2",
+      "default": "Thick 1.5-Inch Canadian wood frame for durability and a professional gallery feel"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_check2",
+      "label": "Show Check 2",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cross2",
+      "label": "Show Cross 2",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "feature3",
+      "label": "Feature 3",
+      "default": "Customization Options"
+    },
+    {
+      "type": "textarea",
+      "id": "desc3",
+      "label": "Description 3",
+      "default": "Eco-solvent, latex, and UV inks for vibrant and long-lasting colors"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_check3",
+      "label": "Show Check 3",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cross3",
+      "label": "Show Cross 3",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "feature4",
+      "label": "Feature 4",
+      "default": "Turnaround Time"
+    },
+    {
+      "type": "textarea",
+      "id": "desc4",
+      "label": "Description 4",
+      "default": "Fast and Reliable"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_check4",
+      "label": "Show Check 4",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cross4",
+      "label": "Show Cross 4",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "feature5",
+      "label": "Feature 5",
+      "default": "Durability"
+    },
+    {
+      "type": "textarea",
+      "id": "desc5",
+      "label": "Description 5",
+      "default": "Stretches/Folds Without Cracking"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_check5",
+      "label": "Show Check 5",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cross5",
+      "label": "Show Cross 5",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "feature6",
+      "label": "Feature 6",
+      "default": "Community Connection"
+    },
+    {
+      "type": "textarea",
+      "id": "desc6",
+      "label": "Description 6",
+      "default": "Social engagement, exclusive designs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_check6",
+      "label": "Show Check 6",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cross6",
+      "label": "Show Cross 6",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose Us"
+    }
+  ]
+}
+{% endschema %}
+
+
