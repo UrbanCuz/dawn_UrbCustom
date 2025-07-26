@@ -93,3 +93,8 @@ field {
   height: 42px;
   width: 42px;
 }
+
+.social-list {
+  justify-content: flex-start;
+  transform: translateX(-20px);
+}
