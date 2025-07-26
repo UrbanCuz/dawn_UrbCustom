@@ -13,9 +13,6 @@
   .footer-block__description {
     font-size: 9px;
   }
-
-
-  .
 }
 
 .footer-links-wrapper {
@@ -111,4 +108,8 @@
 .social-list {
   justify-content: flex-start;
   transform: translateX(-20px);
+}
+
+.footer-block__contact {
+  display: flex;
 }
