@@ -100,6 +100,8 @@
                 <div class="footer-block__menu">
                   {%- if block.settings.heading != blank -%}
                     <h2 class="footer-block__heading inline-richtext">{{ block.settings.heading }}</h2>
+                  {% else %}
+                    <h2 class="empty-heading"></h2>
                   {%- endif -%}
                   {%- if block.settings.menu != blank -%}
                     <ul class="footer-block__details-content list-unstyled">
