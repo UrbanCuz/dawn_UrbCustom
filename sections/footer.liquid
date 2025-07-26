@@ -79,7 +79,7 @@
                 <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
               {%- endif -%} {% endcomment %}
               {%- if settings.brand_description != blank -%}
-                <div class="rte">{{ settings.brand_description }}</div>
+                <div class="footer-block__description">{{ settings.brand_description }}</div>
               {%- endif -%}
 
               {% for block in section.blocks %}
@@ -121,7 +121,7 @@
           </div>
 
           <!-- Third div: Announcement, description, newsletter and social media -->
-          <div class="footer-block grid__item">
+          <div class="footer-newsletter-wrapper">
             {%- if section.settings.newsletter_heading != blank -%}
               <h3 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h3>
             {%- endif -%}
