@@ -4,6 +4,7 @@
 {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{{ 'footer.css' | asset_url | stylesheet_tag }}
 
 
 {%- style -%}
@@ -93,12 +94,12 @@
           </div>
 
           <!-- Second div: Link lists -->
-          <div class="footer-block grid__item">
+          <div class="footer-block">
             {%- for block in section.blocks -%}
               {%- if block.type == 'link_list' -%}
                 <div class="footer-block__menu">
                   {%- if block.settings.heading != blank -%}
-                    <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                    <h2 class="footer-block__heading inline-richtext">{{ block.settings.heading }}</h2>
                   {%- endif -%}
                   {%- if block.settings.menu != blank -%}
                     <ul class="footer-block__details-content list-unstyled">
