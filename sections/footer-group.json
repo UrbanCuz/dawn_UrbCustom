@@ -30,7 +30,7 @@
         "link_list_bfYbMn": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "",
             "menu": "policies"
           }
         }
@@ -44,6 +44,7 @@
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
         "newsletter_heading": "Subscribe to our emails",
+        "newsletter_description": "Sign up to receive Urban Customz emails and get first dibs on new arrivals, sales, exclusive content, events and more!",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,
