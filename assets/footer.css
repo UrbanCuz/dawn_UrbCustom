@@ -113,3 +113,10 @@
 .footer-block__contact {
   display: flex;
 }
+
+.footer-block__contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}

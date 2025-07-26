@@ -82,14 +82,17 @@
                 <div class="footer-block__description">{{ settings.brand_description }}</div>
               {%- endif -%}
 
-              {% for block in section.blocks %}
-                {% if block.type == 'contact' %}
-                  <div class="footer-block__contact">
-                    <img src="{{ block.settings.icon | asset_url }}" alt="Contact icon" width="32" height="32">
-                    <p>{{ block.settings.text }}</p>
-                  </div>
-                {% endif %}
-              {% endfor %}
+
+              <div class="footer-block__contact-wrapper">
+                {% for block in section.blocks %}
+                  {% if block.type == 'contact' %}
+                    <div class="footer-block__contact">
+                      <img src="{{ block.settings.icon | asset_url }}" alt="Contact icon" width="32" height="32">
+                      <p>{{ block.settings.text }}</p>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
             </div>
           </div>
 
