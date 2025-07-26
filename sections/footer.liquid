@@ -94,7 +94,7 @@
           </div>
 
           <!-- Second div: Link lists -->
-          <div class="footer-block">
+          <div class="footer-links-wrapper">
             {%- for block in section.blocks -%}
               {%- if block.type == 'link_list' -%}
                 <div class="footer-block__menu">
@@ -122,8 +122,13 @@
 
           <!-- Third div: Announcement, description, newsletter and social media -->
           <div class="footer-block grid__item">
-            <h3 class="footer-block__heading">Stay Connected</h3>
-            <p class="footer-block__description">Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+            {%- if section.settings.newsletter_heading != blank -%}
+              <h3 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h3>
+            {%- endif -%}
+            
+            {%- if section.settings.newsletter_description != blank -%}
+              <p class="footer-block__description">{{ section.settings.newsletter_description }}</p>
+            {%- endif -%}
             
             {%- if section.settings.newsletter_enable -%}
               <div class="footer-block__newsletter">
@@ -419,8 +424,14 @@
     {
       "type": "inline_richtext",
       "id": "newsletter_heading",
-      "default": "t:sections.footer.settings.newsletter_heading.default",
-      "label": "t:sections.footer.settings.newsletter_heading.label"
+      "default": "Join Our Community & Unlock 15% Off Your First Order!",
+      "label": "Newsletter Heading"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_description",
+      "default": "Sign up to receive Urban Customz emails and get first dibs on new arrivals, sales, exclusive content, events and more!",
+      "label": "Newsletter Description"
     },
     {
       "type": "header",
