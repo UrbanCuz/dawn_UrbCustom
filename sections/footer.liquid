@@ -135,11 +135,11 @@
             {%- if section.settings.newsletter_enable -%}
               <div class="footer-block__newsletter">
                 {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                  <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                  <label class="" for="NewsletterForm--{{ section.id }}">
                     {{ 'newsletter.label' | t }}
                   </label>
                   <input type="hidden" name="contact[tags]" value="newsletter">
-                  <div class="newsletter-form__field-wrapper">
+                  <div class="newsletter-form__field-wrapper email-input-wrapper">
                     <div class="field">
                       <input
                         id="NewsletterForm--{{ section.id }}"

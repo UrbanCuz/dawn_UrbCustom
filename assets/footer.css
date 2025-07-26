@@ -55,6 +55,7 @@
   line-height: 24px;
   color: #D0D0D0;
   background-color: transparent;
+  flex: 2;
 }
 
 .email-button {
@@ -65,4 +66,9 @@
   color: #D0D0D0;
   padding: 10px 50px;
   border: none;
+  flex: 1;
+}
+
+.email-input-wrapper {
+  display: flex;
 }
