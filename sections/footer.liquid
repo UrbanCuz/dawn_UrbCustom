@@ -50,18 +50,9 @@
   -%}
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width">
-        <div class="footer__blocks-wrapper grid grid--1-col grid--3-col-tablet{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-          {% endif %}
-        >
+        <div class="footer__blocks-wrapper grid grid--1-col grid--3-col-tablet">
           <!-- First div: Logo, description and contacts -->
-          <div class="footer-block grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: 1;"
-            {% endif %}
-          >
+          <div class="footer-block grid__item">
             <div class="footer-block__brand-info">
               {%- if settings.brand_image != blank -%}
                 {%- assign brand_image_height = settings.brand_image_width
@@ -82,22 +73,26 @@
                   }}
                 </div>
               {%- endif -%}
-              {%- if settings.brand_headline != blank -%}
+              {% comment %} {%- if settings.brand_headline != blank -%}
                 <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
-              {%- endif -%}
+              {%- endif -%} {% endcomment %}
               {%- if settings.brand_description != blank -%}
                 <div class="rte">{{ settings.brand_description }}</div>
               {%- endif -%}
+
+              {% for block in section.blocks %}
+                {% if block.type == 'contact' %}
+                  <div class="footer-block__contact">
+                    <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="{{ block.settings.icon.alt }}" width="100" height="100">
+                    <p>{{ block.settings.text }}</p>
+                  </div>
+                {% endif %}
+              {% endfor %}
             </div>
           </div>
 
           <!-- Second div: Link lists -->
-          <div class="footer-block grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: 2;"
-            {% endif %}
-          >
+          <div class="footer-block grid__item">
             {%- for block in section.blocks -%}
               {%- if block.type == 'link_list' -%}
                 <div class="footer-block__menu">
@@ -124,12 +119,7 @@
           </div>
 
           <!-- Third div: Announcement, description, newsletter and social media -->
-          <div class="footer-block grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: 3;"
-            {% endif %}
-          >
+          <div class="footer-block grid__item">
             <h3 class="footer-block__heading">Stay Connected</h3>
             <p class="footer-block__description">Subscribe to our newsletter for the latest updates and exclusive offers.</p>
             
@@ -210,12 +200,7 @@
     {%- endunless -%}
   {%- endif -%}
 
-  <div
-    class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    {% if settings.animations_reveal_on_scroll %}
-      data-cascade
-    {% endif %}
-  >
+  <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">
       <div class="footer__column footer__localization isolate">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -287,6 +272,23 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "contact",
+      "name": "Contact Information",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Contact Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Contact Text",
+          "default": "Contact information here"
+        }
+      ]
     },
     {
       "type": "link_list",
