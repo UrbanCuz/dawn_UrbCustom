@@ -164,16 +164,14 @@
                     </div>
                     <button
                         type="submit"
-                        class="newsletter-form__button field__button"
+                        class="email-button"
                         name="commit"
                         id="Subscribe"
                         aria-label="{{ 'newsletter.button_label' | t }}"
                       >
-                        <span class="svg-wrapper">
-                          {{- 'icon-arrow.svg' | inline_asset_content -}}
-                        </span>
+                        SEND
                       </button>
-                      
+
                     {%- if form.errors -%}
                       <small class="newsletter-form__message form__message" id="ContactFooter-error">
                         <span class="svg-wrapper">
