@@ -82,12 +82,14 @@ field {
   width: 32px;
 } */
 
-.list-social__item > a > span {
+/* .list-social__item > a > span {
   height: 42px;
   width: 42px;
   color: #ED1C24;
-}
+} */
 
 .list-social__item > a > span > svg {
   fill: #ED1C24;
+  height: 42px;
+  width: 42px;
 }
