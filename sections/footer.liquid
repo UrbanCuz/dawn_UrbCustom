@@ -133,14 +133,14 @@
             {%- endif -%}
             
             {%- if section.settings.newsletter_enable -%}
-              <div class="footer-block__newsletter">
+              <div class="newsletter-form-wrapper">
                 {%- form 'customer', id: 'ContactFooter' -%}
                   <label class="" for="NewsletterForm--{{ section.id }}">
                     {{ 'newsletter.label' | t }}
                   </label>
                   <input type="hidden" name="contact[tags]" value="newsletter">
                   <div class="email-input-wrapper">
-                    <div class="field">
+                    <div class="field-container">
                       <input
                         id="NewsletterForm--{{ section.id }}"
                         type="email"
