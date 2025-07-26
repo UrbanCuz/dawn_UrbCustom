@@ -88,8 +88,8 @@ field {
   color: #ED1C24;
 }
 
-/* .list-social__item > a > span > svg {
+.list-social__item > a > span > svg {
   fill: #ED1C24;
   height: 42px;
   width: 42px;
-} */
+}
