@@ -46,3 +46,12 @@
 .empty-heading {
   min-height: 23px;
 }
+
+.email-input {
+  border: 1px solid #7F7F7F;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: regular;
+  line-height: 24px;
+  color: #D0D0D0;
+}

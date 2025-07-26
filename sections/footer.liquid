@@ -135,6 +135,9 @@
             {%- if section.settings.newsletter_enable -%}
               <div class="footer-block__newsletter">
                 {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                  <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                    {{ 'newsletter.label' | t }}
+                  </label>
                   <input type="hidden" name="contact[tags]" value="newsletter">
                   <div class="newsletter-form__field-wrapper">
                     <div class="field">
@@ -142,7 +145,7 @@
                         id="NewsletterForm--{{ section.id }}"
                         type="email"
                         name="contact[email]"
-                        class="field__input"
+                        class="email-input"
                         value="{{ form.email }}"
                         aria-required="true"
                         autocorrect="off"
@@ -158,10 +161,8 @@
                         placeholder="{{ 'newsletter.label' | t }}"
                         required
                       >
-                      <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                        {{ 'newsletter.label' | t }}
-                      </label>
-                      <button
+                    </div>
+                    <button
                         type="submit"
                         class="newsletter-form__button field__button"
                         name="commit"
@@ -172,7 +173,7 @@
                           {{- 'icon-arrow.svg' | inline_asset_content -}}
                         </span>
                       </button>
-                    </div>
+                      
                     {%- if form.errors -%}
                       <small class="newsletter-form__message form__message" id="ContactFooter-error">
                         <span class="svg-wrapper">
