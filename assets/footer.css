@@ -76,3 +76,18 @@ field {
 .email-input-wrapper {
   display: flex;
 }
+
+/* .footer-svg-wrapper {
+  height: 32px;
+  width: 32px;
+} */
+
+.list-social__item > a > span {
+  height: 32px;
+  width: 32px;
+  color: #ED1C24;
+}
+
+.list-social__item > a > span > svg {
+  fill: #ED1C24;
+}
