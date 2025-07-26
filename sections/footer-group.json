@@ -20,6 +20,20 @@
             "show_social": true
           }
         },
+        "contact_aEajXK": {
+          "type": "contact",
+          "settings": {
+            "icon": "icon-phone.svg",
+            "text": "Contact information here"
+          }
+        },
+        "contact_nKMJQB": {
+          "type": "contact",
+          "settings": {
+            "icon": "icon-phone.svg",
+            "text": "Contact information here"
+          }
+        },
         "link_list_4MkajD": {
           "type": "link_list",
           "settings": {
@@ -37,6 +51,8 @@
       },
       "block_order": [
         "brand_information_9BhL9a",
+        "contact_aEajXK",
+        "contact_nKMJQB",
         "link_list_4MkajD",
         "link_list_bfYbMn"
       ],
