@@ -13,6 +13,33 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "brand_information_9BhL9a": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "link_list_4MkajD": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        },
+        "link_list_bfYbMn": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "policies"
+          }
+        }
+      },
+      "block_order": [
+        "brand_information_9BhL9a",
+        "link_list_4MkajD",
+        "link_list_bfYbMn"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
