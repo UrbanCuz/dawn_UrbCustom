@@ -84,7 +84,7 @@
               {% for block in section.blocks %}
                 {% if block.type == 'contact' %}
                   <div class="footer-block__contact">
-                    <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="{{ block.settings.icon.alt }}" width="100" height="100">
+                    <img src="{{ block.settings.icon | asset_url }}" alt="Contact icon" width="32" height="32">
                     <p>{{ block.settings.text }}</p>
                   </div>
                 {% endif %}
@@ -279,9 +279,20 @@
       "name": "Contact Information",
       "settings": [
         {
-          "type": "image_picker",
+          "type": "select",
           "id": "icon",
-          "label": "Contact Icon"
+          "label": "Contact Icon",
+          "options": [
+            {
+              "value": "icon-phone.svg",
+              "label": "Phone"
+            },
+            {
+              "value": "icon-email.svg",
+              "label": "Email"
+            }
+          ],
+          "default": "icon-phone.svg"
         },
         {
           "type": "text",
